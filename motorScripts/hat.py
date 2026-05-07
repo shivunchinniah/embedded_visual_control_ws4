@@ -148,13 +148,13 @@ class Motor:
 class AbsHAT:
     __metaclass__ = ABCMeta
 
-    def __init__(self, address=0x50, frequency=1600):
+    def __init__(self, address=0x60, frequency=1600):
         # default I2C address of the HAT
         self._i2caddr = address
         # default @1600Hz PWM frequency
         self._frequency = frequency
         # configure PWM
-        self._pwm = PWM(self._i2caddr, debug=False, busnum=0)
+        self._pwm = PWM(self._i2caddr, debug=False)
         self._pwm.setPWMFreq(self._frequency)
 
     @abstractmethod
